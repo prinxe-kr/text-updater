@@ -1,42 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Tasks and Hobbies</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Text Updater</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+    *{
+        box-sizing:border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body{
+        margin:0;
+        height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    }
+
+    .card{
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(12px);
+        padding:40px;
+        border-radius:16px;
+        box-shadow:0 0 40px rgba(0,0,0,0.4);
+        width:350px;
+        text-align:center;
+        color:white;
+    }
+
+    h1{
+        margin-bottom:20px;
+        font-weight:600;
+    }
+
+    #myParagraph{
+        margin:20px 0;
+        font-size:18px;
+        color:#00ffd5;
+        min-height:30px;
+    }
+
+    input{
+        width:100%;
+        padding:12px;
+        border-radius:8px;
+        border:none;
+        outline:none;
+        margin-bottom:15px;
+        font-size:16px;
+    }
+
+    button{
+        width:100%;
+        padding:12px;
+        border:none;
+        border-radius:8px;
+        background: linear-gradient(45deg,#00ffd5,#00b3ff);
+        color:black;
+        font-size:16px;
+        font-weight:600;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    button:hover{
+        transform: scale(1.05);
+        box-shadow:0 0 15px #00ffd5;
+    }
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>My Structured Lists Demo</h1>
-    </header>
-    <hr>
-    <section>
-        <h2>Daily Tasks (Ordered List)</h2>        
-        <ol>
-            <li>Wake up and have breakfast.</li>
-            <li>Going to college.</li>
-            <li>Attending the classes.</li>
-            <li>Take a 30-minute walk or workout after classes.</li>
-            <li>Have dinner and plan for the next day.</li>
-            <li>Play some games.</li>
-            <li>Do some study and then sleep.</li>
-        </ol>
-    </section>
-    <hr>
-    <section>
-        <h2>Hobbies and Interests (Unordered List)</h2>
-        <ul>
-            <li>Landscape Photography</li>
-            <li>Cinematography</li>
-            <li>Playing Badminton</li>
-            <li>Playing the acoustic guitar </li>
-            <li>Swimming</li>
-            <li>Listening to music</li>
-        </ul>
-    </section>
+<div class="card">
+    <h1>Text Updater</h1>
+
+    <p id="myParagraph">This text will change</p>
+
+    <input type="text" id="myInput" placeholder="Type something...">
+    <button id="myButton">Change Text</button>
+</div>
+
+<script>
+    const btn = document.querySelector('#myButton');
+
+    btn.onclick = function() {
+        const field = document.querySelector('#myInput');
+        const para = document.querySelector('#myParagraph');
+
+        if(field.value.trim() === ""){
+            para.textContent = "Please enter something!";
+        } else {
+            para.textContent = field.value;
+        }
+
+        field.value = "";
+    };
+</script>
+
 </body>
 </html>
-
-
